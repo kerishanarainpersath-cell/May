@@ -1,112 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Mayren 💕</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>For Mayren 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      width: 320px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-      animation: bounce 1.5s infinite alternate;
-      position: relative;
-      z-index: 2;
-    }
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    animation: bounce 1.5s infinite alternate;
+    position: relative;
+    z-index: 5;
+  }
 
-    h1 {
-      color: #ff4d79;
-      font-size: 26px;
-    }
+  h1 {
+    color: #ff4d79;
+    font-size: 26px;
+  }
 
-    .buttons {
-      margin-top: 25px;
-      height: 140px;
-      position: relative;
-    }
+  .buttons {
+    margin-top: 25px;
+    height: 150px;
+    position: relative;
+  }
 
-    button {
-      border: none;
-      border-radius: 30px;
-      padding: 12px 25px;
-      font-size: 16px;
-      cursor: pointer;
-      position: absolute;
-    }
+  button {
+    border: none;
+    border-radius: 30px;
+    padding: 12px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+  }
 
-    #yesBtn {
-      background: #ff4d79;
-      color: white;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: transform 0.3s ease;
-    }
+  #yesBtn {
+    background: #ff4d79;
+    color: white;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    transition: transform 0.25s ease;
+  }
 
-    #noBtn {
-      background: #ddd;
-      color: #333;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+  #noBtn {
+    background: #ddd;
+    color: #333;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-    .message {
-      margin-top: 20px;
-      min-height: 70px;
-      color: #ff4d79;
-      font-weight: bold;
-      position: relative;
-      z-index: 3;
-    }
+  .message {
+    margin-top: 20px;
+    min-height: 80px;
+    color: #ff4d79;
+    font-weight: bold;
+  }
 
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-10px); }
-    }
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+  }
 
-    .heart {
-      position: fixed;
-      bottom: -20px;
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
-      color: rgba(255,77,121,0.7);
-      z-index: 1;
-    }
+  .heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    z-index: 1;
+  }
 
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(-110vh); opacity: 0; }
-    }
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+  }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 10;
-    }
-  </style>
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 20;
+  }
+</style>
 </head>
 
 <body>
 
 <!-- Romantic instrumental music -->
-<audio id="bgMusic" loop>
+<audio id="music" loop>
   <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_8c4a6c2f3f.mp3" type="audio/mpeg">
 </audio>
 
@@ -128,7 +125,7 @@
   const noBtn = document.getElementById("noBtn");
   const message = document.getElementById("message");
   const card = document.getElementById("card");
-  const music = document.getElementById("bgMusic");
+  const music = document.getElementById("music");
 
   let yesClicks = 0;
   let yesScale = 1;
@@ -137,17 +134,17 @@
 
   const curses = [
     "❌ McDonald's fries lose their crunch 🍟",
-    "❌ Man United keeps losing ⚽",
-    "❌ Argentina loses the World Cup 🇦🇷",
-    "❌ Messi misses open goals 🐐",
+    "❌ Man United won’t win a game ⚽",
+    "❌ Argentina won’t win the World Cup 🇦🇷",
+    "❌ Messi won’t score a goal 🐐",
     "❌ Your pillow is always warm 😈"
   ];
 
-  const savedMessages = [
-    "😌 Saved! McDonald's fries stay crispy 🍟",
+  const saved = [
+    "😌 Saved! Fries stay crispy 🍟",
     "😌 Saved! Man United might win again ⚽",
     "😌 Saved! Argentina wins the World Cup 🇦🇷",
-    "😌 Saved! Messi scores again 🐐⚽"
+    "😌 Saved! Messi scores 🐐⚽"
   ];
 
   function startMusic() {
@@ -160,10 +157,11 @@
   yesBtn.addEventListener("click", () => {
     startMusic();
 
-    if (yesClicks < savedMessages.length) {
-      message.textContent = savedMessages[yesClicks];
+    if (yesClicks < saved.length) {
+      message.textContent = saved[yesClicks];
       yesClicks++;
-      yesScale += 0.2;
+
+      yesScale += 0.3;
       yesBtn.style.transform = `translateX(-50%) scale(${yesScale})`;
     } else {
       launchConfetti();
@@ -185,13 +183,13 @@
     noClicks++;
 
     const x = Math.random() * 220 - 110;
-    const y = Math.random() * 70;
+    const y = Math.random() * 80;
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
   });
 
   function createHeart() {
     const heart = document.createElement("div");
-    heart.classList.add("heart");
+    heart.className = "heart";
     heart.textContent = "💖";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
@@ -200,7 +198,6 @@
   }
   setInterval(createHeart, 400);
 
-  /* 🎉 CONFETTI */
   function launchConfetti() {
     const canvas = document.getElementById("confetti");
     const ctx = canvas.getContext("2d");
@@ -208,13 +205,13 @@
     canvas.height = window.innerHeight;
 
     const pieces = [];
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 160; i++) {
       pieces.push({
         x: canvas.width / 2,
         y: canvas.height / 2,
         r: Math.random() * 6 + 4,
-        dx: (Math.random() - 0.5) * 10,
-        dy: (Math.random() - 0.7) * 10,
+        dx: (Math.random() - 0.5) * 12,
+        dy: (Math.random() - 0.7) * 12,
         color: `hsl(${Math.random() * 360},100%,70%)`
       });
     }
